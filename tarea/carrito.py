@@ -1,8 +1,5 @@
-import os
-
 salir=False
 datos=0
-cod=0
 productos= {
     "11" : {
         "nombre" : "Air Force 1",
@@ -36,14 +33,14 @@ productos= {
         "talle": "40",
 
     },
-    "15" : {
-        "nombre" : "AIR NFH",
-        "marca" : "Jordan",
-        "precio" : 20000,
-        "stock" : 15,
-        "talle" : "40",
+    "15" : ([
+        ("nombre" , "AIR NFH"),
+        ("marca" , "Jordan"),
+        ("precio" , 20000),
+        ("stock" , 15),
+        ("talle" , "40"),
 
-},
+    ]),
     "16" : {
         "nombre" : "ORIGINALS SUPERSTAR",
         "marca": "Adidas",
@@ -53,7 +50,6 @@ productos= {
 
     },
 }
-carrito={}
 
 primer_producto = productos["11"]
 segundo_producto = productos["12"]
@@ -61,51 +57,6 @@ tercero_producto = productos["13"]
 cuarto_producto = productos["14"]
 quinto_producto = productos["15"]
 sexto_producto = productos["16"]
-
-def mostrar_productos(productos):
-    print ("Los productos que ofrecemos son: ")
-    for key, value in productos.items():
-        
-        print("Nombre:", productos[key]["nombre"])
-        print("Marca:", productos[key]["marca"])
-        print("Precio: $", productos[key]["precio"])
-        print("Stock:", productos[key]["stock"])
-        print("Talle:", productos[key]["talle"])
-        print()
-
-def buscarProducto(cod, productos):
-    while(True):
-        for key, value in productos.items():
-
-            if cod==key:
-                
-                print("")
-                print ("Producto encontrado:")
-                print("Nombre:", productos[key]["nombre"])
-                print("Marca:", productos[key]["marca"])
-                print("Precio: $", productos[key]["precio"])
-                print("Stock:", productos[key]["stock"])
-                print("Talle:", productos[key]["talle"])
-                print("")
-                return
-        cod = input("El producto que desea buscar no existe, vuelva a introducir otro codigo: ")
-
-def validar_opcion(opcion):
-    while(True):
-        if opcion.isnumeric():
-            opcion =int(opcion)
-            if opcion<5 and opcion>0:
-                return opcion
-            else:
-                opcion= input("La opcion ingresada no es correcta, vuelva a ingresar otra opción: ")    
-            #validar que las primeras opciones sean correctas
-        else:
-            opcion= input("La opcion ingresada no es un numero, vuelva a ingresar otra opción: ")
-
-
-
-
-
 
 while (salir==False):
     print (""" Bienvenido a tienda SHOES:
@@ -115,25 +66,74 @@ while (salir==False):
     4)finalizar compra
     5)salir
     """)
-    
-    opcion= validar_opcion(input("Ingrese una opción: "))
-    
+    opcion= int(input("Ingrese una opción: "))
     #como limpiar pantalla
     if opcion == 1:
-        print()
-        mostrar_productos(productos)
+        #como hacer para que salga ordenado y sin llaves
+        for i in productos:
+            print (productos)
     if opcion ==2:
-        buscarProducto(input("Ingrese el codigo del producto a buscar: "),productos)
-        #asi llamo una función
-        continuar = input("Ingrese ENTER para continuar")
-        os.system("cls")
+        cod = input ("Ingresa el código de la zapatilla que deseas ver: ")
+        if cod==11:
+            #algo anda mallllllllll, validar, el primer print
+            print ("Producto encontrado:")
+        print("Nombre:", primer_producto["nombre"])
+        print("Marca:", primer_producto["marca"])
+        print("Precio: $", primer_producto["precio"])
+        print("Stock:", primer_producto["stock"])
+        print("Talle:",primer_producto["talle"])
+
+        if cod==12:
+            #algo anda mallllllllll, validar, el primer print
+            print ("Producto encontrado:")
+        print("Nombre:", segundo_producto["nombre"])
+        print("Marca:", segundo_producto["marca"])
+        print("Precio: $", segundo_producto["precio"])
+        print("Stock:", segundo_producto["stock"])
+        print("Talle:",segundo_producto["talle"])
+
+        if cod==13:
+            #algo anda mallllllllll, validar, el primer print
+            print ("Producto encontrado:")
+        print("Nombre:", tercero_producto["nombre"])
+        print("Marca:", tercero_producto["marca"])
+        print("Precio: $", tercero_producto["precio"])
+        print("Stock:", tercero_producto["stock"])
+        print("Talle:", tercero_producto["talle"])
+
+        if cod==14:
+            #algo anda mallllllllll, validar, el primer print
+            print ("Producto encontrado:")
+        print("Nombre:", cuarto_producto["nombre"])
+        print("Marca:", cuarto_producto["marca"])
+        print("Precio: $", cuarto_producto["precio"])
+        print("Stock:", cuarto_producto["stock"])
+        print("Talle:", cuarto_producto["talle"])
+
+        if cod==15:
+            #algo anda mallllllllll, validar, el primer print
+            print ("Producto encontrado:")
+        print("Nombre:", quinto_producto["nombre"])
+        print("Marca:", quinto_producto["marca"])
+        print("Precio: $", quinto_producto["precio"])
+        print("Stock:", quinto_producto["stock"])
+        print("Talle:", quinto_producto["talle"])
+
+        if cod==15:
+            #algo anda mallllllllll, validar, el primer print
+            print ("Producto encontrado:")
+        print("Nombre:", sexto_producto["nombre"])
+        print("Marca:", sexto_producto["marca"])
+        print("Precio: $", sexto_producto["precio"])
+        print("Stock:", sexto_producto["stock"])
+        print("Talle:", sexto_producto["talle"])
+
     
 
     if opcion == 3:
         cod = input ("Ingrese el producto que desea agregar a su carrito ")
         cantidad =int(input("Cantidad:"))
         #agregar producto a un nuevo diccionario
-        #y 
 
 
 
